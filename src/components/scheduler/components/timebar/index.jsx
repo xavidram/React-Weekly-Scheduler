@@ -52,7 +52,7 @@ class TimeBar extends React.Component {
             let x = segment.segments.map(s => {
                 return(
                     <div class="segment">
-                        <b>{s.date.format('hh:mm A')}</b>
+                        {s.date.format('hh:mm A')}
                     </div>
                 );
             });

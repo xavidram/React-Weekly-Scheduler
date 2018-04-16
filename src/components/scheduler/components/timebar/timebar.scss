@@ -4,10 +4,24 @@
     .hour-segment {
         display: grid;
         grid-template-rows: repeat(auto-fit, auto);
-        height: 3em;
+        height: 4.5em;
+        &:nth-child(odd) {
+            background-color: #fafafa;
+        }
+        &:not(:last-child) {
+            border-bottom: 1px solid #e1e1e1;
+        }
         .segment {
             text-align: center;
             padding-top: 0.2em;
+            font-weight: bold;
+            &:hover {
+                background-color: #ededed;
+            }
+            &:not(:last-child) {
+                border-bottom: thin dashed #e1e1e1;
+            }
         }
+
     }
 }
