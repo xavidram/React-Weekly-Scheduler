@@ -1,0 +1,6 @@
+.scheduler-content {
+    margin-top: 0.5em;
+    border: 1px solid #eaeaea;
+    display:grid;
+    grid-template-columns: 100px repeat(auto-fit, minmax(100px, 1fr));
+}

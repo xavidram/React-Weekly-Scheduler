@@ -1,0 +1,19 @@
+.scheduler-header {
+    display: grid;
+    grid-template-columns: 100px repeat(auto-fit, minmax(100px, 1fr));
+    .header-clock {
+        border: 0.5px solid #eaeaea;
+        align-content: center;
+        text-align: center;
+        padding: 0.2em 0;
+    }
+    .header-cols {
+        align-content: center;
+        text-align: center;
+        border: 0.5px solid #eaeaea;
+        padding: 0.2em 0;
+        span {
+            color: #c9c9c9;
+        }
+    }
+}

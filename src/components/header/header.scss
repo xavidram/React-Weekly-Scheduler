@@ -1,0 +1,21 @@
+.UTRGV-Header {
+    border-bottom: 10px solid #CF4411;
+    margin-bottom: 20px;
+    background: #65646a;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    height: 98px;
+    align-items: center;
+    .UTRGV-Logo {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+    .UTRGV-Tagline {
+        padding-left: 1em;
+        grid-column-start: 5;
+        grid-column-end: 10;
+        h1,h2,h3,h4,h5,p {
+            color: white;
+        }
+    }
+}
