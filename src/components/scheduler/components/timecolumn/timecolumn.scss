@@ -1,31 +1,20 @@
-.scheduler-timebar-col {
+.scheduler-timecolumn {
     display: grid;
     grid-template-rows: repeat( auto-fit, auto );
+    border-right: thin solid #e1e1e1;
     .hour-segment {
         display: grid;
         grid-template-rows: repeat(auto-fit, auto);
         height: 5em;
-        &:nth-child(odd) {
-            background-color: #fafafa;
-        }
-        &:not(:last-child) {
-            border-bottom: 1px solid #e1e1e1;
-        }
         .segment {
             text-align: center;
             vertical-align: middle;
             padding-top: 0.2em;
             font-weight: 100;
-            &:hover {
-                background-color: #ededed;
-            }
-            &:not(:last-child) {
-                border-bottom: thin dashed #e1e1e1;
-            }
+            border-bottom: thin solid #e1e1e1;
         }
         &:last-child {
             height: 2.5em;
         }
-
     }
 }

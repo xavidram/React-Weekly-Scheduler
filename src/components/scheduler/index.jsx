@@ -49,7 +49,7 @@ class Scheduler extends React.Component {
         return(
             <div>
                 <SchedulerHeader days={this.week} />
-                <SchedulerContent/>
+                <SchedulerContent days={this.week}/>
             </div>
         );
     }
