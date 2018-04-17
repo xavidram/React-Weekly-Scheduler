@@ -4,7 +4,8 @@ import { range } from 'react-range-proptypes';
 import './content.css';
 
 import TimeBar from '../timebar';
-import TimeColumn from '../timecolumn';
+import DayColumn from '../daycolumn';
+import { moment } from 'moment';
 
 class SchedulerContent extends React.Component {
 
@@ -20,18 +21,34 @@ class SchedulerContent extends React.Component {
     }
 
     generateDayColumns() {
+        let week = this.filterByWeekday(this.props.data);
         return this.state.days.map(day => {
             return(
-                <TimeColumn
-                    key={'content-day-'+day.weekday}
+               <DayColumn
+                    data={week[day.day]}
+                    key={'daycolumn-' + day.weekday}
                     weekday={day.weekday}
                     string={day.string}
                     startHour={this.props.startHour}
                     endHour={this.props.endHour}
-                    hourSegments={this.props.hourSegments * 2}
-                />
+                    hourSegments={this.props.hourSegments}
+               />
             );
         });
+    }
+
+    filterByWeekday(data) {
+        let week = []; let d = [];
+        for(let day of this.state.days) {
+            d = [];
+            for(let usr of data) {
+                if(usr.shift.date === day.date) {
+                    d.push(usr);
+                }
+            }
+            week.push(d);
+        }
+        return week;
     }
 
     render() {
@@ -55,7 +72,8 @@ SchedulerContent.propTypes = {
         isWeekend: PropTypes.bool,
         date: PropTypes.string,
         string: PropTypes.string,
-        weekday: PropTypes.string
+        weekday: PropTypes.string,
+        day: PropTypes.number
     })),
     startDay: range(0, 6),
     endDay: range(0, 6),

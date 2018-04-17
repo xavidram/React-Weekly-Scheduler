@@ -17,7 +17,6 @@ class Scheduler extends React.Component {
             'Wednesday', 'Thursday', 'Friday', 'Saturday'
         ];
         this.week = this.generateWeek();
-
     }
 
     generateWeek() {
@@ -31,7 +30,8 @@ class Scheduler extends React.Component {
                     isWeekend: true,
                     date: start.format('MM/DD/YYYY'),
                     string: start.format('MMM Do'),
-                    weekday: this.weekday[start.day()]
+                    weekday: this.weekday[start.day()],
+                    day: start.day()
                 });
             } else {
                 week.push({
@@ -39,14 +39,15 @@ class Scheduler extends React.Component {
                     isWeekend: false,
                     date: start.format('MM/DD/YYYY'),
                     string: start.format('MMM Do'),
-                    weekday: this.weekday[start.day()]
+                    weekday: this.weekday[start.day()],
+                    day: start.day()
                 });
             }
 
         }
         return week;
     }
-
+    
     render() {
         return (
             <div>
@@ -57,6 +58,7 @@ class Scheduler extends React.Component {
                     hourSegments={this.props.hourSegments}
                 />
                 <SchedulerContent
+                    data={this.props.data}
                     days={this.week}
                     startDay={this.props.startDay}
                     endDay={this.props.endDay}

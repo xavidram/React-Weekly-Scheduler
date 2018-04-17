@@ -3,6 +3,9 @@ import './Home.css';
 
 import Scheduler from '../../components/scheduler';
 
+// Data import
+import DATA from '../../providers/data.json';
+
 class Home extends React.Component {
 
     constructor(props) {
@@ -21,6 +24,7 @@ class Home extends React.Component {
         return(
             <div className="Home">
                 <Scheduler
+                    data={DATA}
                     hourSegments={this.state.hourSegments}
                     startHour={this.state.startHour}
                     endHour={this.state.endHour}
