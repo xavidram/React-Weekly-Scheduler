@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { range } from 'react-range-proptypes';
 import './header.css';
 import * as FontAwesome from 'react-icons/lib/fa';
 
@@ -39,5 +41,18 @@ class SchedulerHeader extends React.Component {
     }
 
 }
+
+SchedulerHeader.propTypes = {
+    days: PropTypes.arrayOf(PropTypes.shape({
+        isHoliday: PropTypes.bool,
+        isWeekend: PropTypes.bool,
+        date: PropTypes.string,
+        string: PropTypes.string,
+        weekday: PropTypes.string
+    })),
+    startDay: range(0, 6),
+    endDay: range(0, 6)
+
+};
 
 export default SchedulerHeader;

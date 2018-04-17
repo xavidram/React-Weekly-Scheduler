@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { range  } from 'react-range-proptypes';
 import './timecolumn.css';
 import moment from 'moment';
 
@@ -6,8 +8,9 @@ class TimeColumn extends React.Component {
 
     constructor(props) {
         super(props);
-        this.segments = this.props.segments;
-        this.segMins = 60 / this.props.segments;
+        this.segments = this.props.hourSegments;
+        this.segMins = 60 / this.props.hourSegments;
+        console.log(this.props)
     }
 
     // Generate Array based on start and end value
@@ -21,10 +24,10 @@ class TimeColumn extends React.Component {
     }
 
     generateColumn() {
-        let start = moment(this.props.starthour, 'h');
-        let end = moment(this.props.endhour, 'h');
+        let start = moment(this.props.startHour, 'h');
+        let end = moment(this.props.endHour, 'h');
         let hours = [];
-        let diff = this.getRange(this.props.starthour, this.props.endhour);
+        let diff = this.getRange(this.props.startHour, this.props.endHour);
         let date = start.clone();
         diff.map((hour, number) => {
             let segments = [];
@@ -72,7 +75,16 @@ class TimeColumn extends React.Component {
             </div>
         );
     }
-
 }
+
+TimeColumn.propTypes = {
+    days: PropTypes.arrayOf(PropTypes.string),
+    startDay: range(0, 6),
+    endDay: range(0, 6),
+    hourSegments: PropTypes.oneOf([1, 2, 4]),
+    startHour: range(1, 24), // between 1 - 24 hrs
+    endHour: range(1, 24), // between 1 - 24 hrs
+    weekday: PropTypes.string
+};
 
 export default TimeColumn;

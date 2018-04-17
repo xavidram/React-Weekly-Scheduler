@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { range } from 'react-range-proptypes';
 import './content.css';
 
 import TimeBar from '../timebar';
@@ -24,9 +26,9 @@ class SchedulerContent extends React.Component {
                     key={'content-day-'+day.weekday}
                     weekday={day.weekday}
                     string={day.string}
-                    starthour="8"
-                    endhour="18"
-                    segments="4"
+                    startHour={this.props.startHour}
+                    endHour={this.props.endHour}
+                    hourSegments={this.props.hourSegments * 2}
                 />
             );
         });
@@ -37,15 +39,29 @@ class SchedulerContent extends React.Component {
         return(
             <div className="scheduler-content">
                 <TimeBar
-                    starthour="8"
-                    endhour="18"
-                    segments="2"
+                    startHour={this.props.startHour}
+                    endHour={this.props.endHour}
+                    hourSegments={this.props.hourSegments}
                 />
                 {week}
             </div>
         );
     }
-
 }
+
+SchedulerContent.propTypes = {
+    days: PropTypes.arrayOf(PropTypes.shape({
+        isHoliday: PropTypes.bool,
+        isWeekend: PropTypes.bool,
+        date: PropTypes.string,
+        string: PropTypes.string,
+        weekday: PropTypes.string
+    })),
+    startDay: range(0, 6),
+    endDay: range(0, 6),
+    hourSegments: PropTypes.oneOf([1, 2]),
+    startHour: range(1, 24), // between 1 - 24 hrs
+    endHour: range(1, 24), // between 1 - 24 hrs
+};
 
 export default SchedulerContent;

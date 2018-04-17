@@ -20,11 +20,16 @@ class Home extends React.Component {
     render() {
         return(
             <div className="Home">
-                <Scheduler/>
+                <Scheduler
+                    hourSegments={this.state.hourSegments}
+                    startHour={this.state.startHour}
+                    endHour={this.state.endHour}
+                    startDay={this.state.startDay}
+                    endDay={this.state.endDay}
+                />
             </div>
         );
     }
-
 }
 
 export default Home;
