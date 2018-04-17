@@ -1,0 +1,181 @@
+[{
+    "name": "Student1",
+    "color": "#FF715B",
+    "shift": {
+        "date": "04/16/2018",
+        "Start": "10:30",
+        "bStart": "14:00",
+        "bEnd": "14:30",
+        "End": "18:00"
+    }
+}, {
+    "name": "Student1",
+    "color": "#FF715B",
+    "shift": {
+        "date": "04/18/2018",
+        "Start": "10:30",
+        "bStart": "14:00",
+        "bEnd": "14:30",
+        "End": "18:00"
+    }
+}, {
+    "name": "Student1",
+    "color": "#FF715B",
+    "shift": {
+        "date": "04/20/2018",
+        "Start": "13:00",
+        "bStart": "00:00",
+        "bEnd": "00:00",
+        "End": "18:00"
+    }
+}, {
+    "name": "Student2",
+    "color": "#2B4162",
+    "shift": {
+        "date": "04/17/2018",
+        "Start": "09:00",
+        "bStart": "00:00",
+        "bEnd": "00:00",
+        "End": "13:30"
+    }
+}, {
+    "name": "Student2",
+    "color": "#2B4162",
+    "shift": {
+        "date": "04/18/2018",
+        "Start": "13:00",
+        "bStart": "00:00",
+        "bEnd": "00:00",
+        "End": "17:30"
+    }
+}, {
+    "name": "Student2",
+    "color": "#2B4162",
+    "shift": {
+        "date": "04/19/2018",
+        "Start": "09:00",
+        "bStart": "00:00",
+        "bEnd": "00:00",
+        "End": "13:30"
+    }
+}, {
+    "name": "Student2",
+    "color": "#2B4162",
+    "shift": {
+        "date": "04/20/2018",
+        "Start": "08:00",
+        "bStart": "10:30",
+        "bEnd": "14:30",
+        "End": "17:30"
+    }
+}, {
+    "name": "Student3",
+    "color": "#FFE74C",
+    "shift": {
+        "date": "04/16/2018",
+        "Start": "09:00",
+        "bStart": "12:00",
+        "bEnd": "12:30",
+        "End": "14:00"
+    }
+}, {
+    "name": "Student3",
+    "color": "#FFE74C",
+    "shift": {
+        "date": "04/17/2018",
+        "Start": "08:00",
+        "bStart": "09:00",
+        "bEnd": "15:00",
+        "End": "18:00"
+    }
+}, {
+    "name": "Student3",
+    "color": "#FFE74C",
+    "shift": {
+        "date": "04/18/2018",
+        "Start": "09:00",
+        "bStart": "13:00",
+        "bEnd": "13:30",
+        "End": "15:00"
+    }
+}, {
+    "name": "Student3",
+    "color": "#FFE74C",
+    "shift": {
+        "date": "04/19/2018",
+        "Start": "08:00",
+        "bStart": "09:00",
+        "bEnd": "15:00",
+        "End": "18:00"
+    }
+}, {
+    "name": "Student4",
+    "color": "#861388",
+    "shift": {
+        "date": "04/16/2018",
+        "Start": "14:00",
+        "bStart": "00:00",
+        "bEnd": "00:00",
+        "End": "18:00"
+    }
+}, {
+    "name": "Student4",
+    "color": "#861388",
+    "shift": {
+        "date": "04/17/2018",
+        "Start": "13:00",
+        "bStart": "00:00",
+        "bEnd": "00:00",
+        "End": "18:00"
+    }
+}, {
+    "name": "Student4",
+    "color": "#861388",
+    "shift": {
+        "date": "04/18/2018",
+        "Start": "14:00",
+        "bStart": "00:00",
+        "bEnd": "00:00",
+        "End": "18:00"
+    }
+}, {
+    "name": "Student4",
+    "color": "#861388",
+    "shift": {
+        "date": "04/19/2018",
+        "Start": "14:00",
+        "bStart": "00:00",
+        "bEnd": "00:00",
+        "End": "18:00"
+    }
+}, {
+    "name": "Student5",
+    "color": "#C43B38",
+    "shift": {
+        "date": "04/17/2018",
+        "Start": "11:00",
+        "bStart": "00:00",
+        "bEnd": "00:00",
+        "End": "16:00"
+    }
+}, {
+    "name": "Student5",
+    "color": "#C43B38",
+    "shift": {
+        "date": "04/19/2018",
+        "Start": "11:00",
+        "bStart": "00:00",
+        "bEnd": "00:00",
+        "End": "16:00"
+    }
+}, {
+    "name": "Student5",
+    "color": "#C43B38",
+    "shift": {
+        "date": "04/20/2018",
+        "Start": "10:30",
+        "bStart": "00:00",
+        "bEnd": "00:00",
+        "End": "15:30"
+    }
+}]
