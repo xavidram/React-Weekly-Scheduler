@@ -43,21 +43,22 @@ class TimeBar extends React.Component {
                 hours.push({segments: segments});
             }
         });
+        // add extra segment to ending hour
         return hours;
     }
 
     render() {
         let hours = this.generateColumn();
-        let segments = hours.map(segment => {
-            let x = segment.segments.map(s => {
+        let segments = hours.map((segment, ind) => {
+            let x = segment.segments.map((s, i) => {
                 return(
-                    <div class="segment">
+                    <div className="segment" key={'hour' + ind + 'segment' + i}>
                         {s.date.format('hh:mm A')}
                     </div>
                 );
             });
             return(
-                <div className="hour-segment">
+                <div className="hour-segment" key={'hour' + ind}>
                     {x}
                 </div>
             );

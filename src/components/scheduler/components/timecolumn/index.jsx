@@ -31,6 +31,7 @@ class TimeColumn extends React.Component {
             for(let i = 0; i < this.segments; i++) {
                 if(date >= start && date <= end) {
                     segments.push({
+                        key: String(this.props.weekday) + " " + String(hour) + " " + String(i),
                         date: date,
                         isStart: i === 0
                     });
@@ -41,20 +42,26 @@ class TimeColumn extends React.Component {
                 hours.push({segments: segments});
             }
         });
+        let extra = hours[hours.length - 1].segments[0].date.clone().add(this.segMins, 'm');
+        hours[hours.length - 1].segments.push({
+            key: String(this.props.weekday) + " " + String(extra.hour()) + " 2",
+            date: extra,
+            isStart: false
+        });
         return hours;
     }
 
     render() {
         let hours = this.generateColumn();
-        let segments = hours.map(segment => {
-            let x = segment.segments.map(s => {
+        let segments = hours.map((segment, ind) => {
+            let x = segment.segments.map((s, i) => {
                 return(
-                    <div class="segment">
+                    <div className="segment" key={s.key}>
                     </div>
                 );
             });
             return(
-                <div className="hour-segment">
+                <div className="hour-segment" key={'day' + this.props.weekday + 'hour'+ind}>
                     {x}
                 </div>
             );
