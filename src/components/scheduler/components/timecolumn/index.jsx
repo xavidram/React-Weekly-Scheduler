@@ -11,7 +11,6 @@ class TimeColumn extends React.Component {
         this.segments = this.props.hourSegments;
         this.segMins = 60 / this.props.hourSegments;
         this.color = ((this.props.data != null) ? this.props.data.color : '#FFF');
-        console.log(this.props.data);
     }
 
     // Generate Array based on start and end value
