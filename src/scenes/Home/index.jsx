@@ -24,7 +24,7 @@ class Home extends React.Component {
         return(
             <div className="Home">
                 <Scheduler
-                    data={DATA}
+                    //data={DATA}
                     hourSegments={this.state.hourSegments}
                     startHour={this.state.startHour}
                     endHour={this.state.endHour}

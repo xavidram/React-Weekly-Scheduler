@@ -39,14 +39,16 @@ class SchedulerContent extends React.Component {
 
     filterByWeekday(data) {
         let week = []; let d = [];
-        for(let day of this.state.days) {
-            d = [];
-            for(let usr of data) {
-                if(usr.shift.date === day.date) {
-                    d.push(usr);
+        if (typeof data != 'undefined') {
+            for(let day of this.state.days) {
+                d = [];
+                for(let usr of data) {
+                    if(usr.shift.date === day.date) {
+                        d.push(usr);
+                    }
                 }
+                week.push(d);
             }
-            week.push(d);
         }
         return week;
     }

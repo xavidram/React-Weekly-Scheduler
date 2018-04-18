@@ -27,7 +27,7 @@ class DayColumn extends React.Component {
 
     render() {
         let cols;
-        if (this.props.data.length > 0) {
+        if (typeof this.props.data != 'undefined') {
             cols = this.data.map((usr, index) => {
                 return (
                     <TimeColumn
