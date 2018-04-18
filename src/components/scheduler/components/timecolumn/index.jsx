@@ -24,17 +24,22 @@ class TimeColumn extends React.Component {
         );
     }
 
-    cellColor(date) {
+    cellStyle(date) {
         
         if(typeof this.props.data != 'undefined'){
             if(date.format('HH:mm') >= this.props.data.shift.Start && date.format('HH:mm') <= this.props.data.shift.End) {
                 if(date.format('HH:mm') >= this.props.data.shift.bStart && date.format('HH:mm') <= this.props.data.shift.bEnd){
-                    return 'FFF'
+                    return {
+                        backgroundColor: '#FFF'
+                    };
                 }
-                return this.color;
+                return {
+                    backgroundColor: this.color,
+                    borderBottomColor: this.color
+                }
             }
         }
-        return '#FFF';
+        return { backgroundColor: '#FFF' };
     }
 
     generateColumn() {
@@ -47,12 +52,12 @@ class TimeColumn extends React.Component {
             let segments = [];
             for (let i = 0; i < this.segments; i++) {
                 if (date >= start && date <= end) {
-                    let c = this.cellColor(date);
+                    let c = this.cellStyle(date);
                     segments.push({
                         key: String(this.props.weekday) + " " + String(hour) + " " + String(i),
                         date: date,
                         isStart: i === 0,
-                        color: c
+                        style: c
                     });
                 }
                 date = date.clone().add(this.segMins, 'm');
@@ -78,7 +83,7 @@ class TimeColumn extends React.Component {
         let segments = hours.map((segment, ind) => {
             let x = segment.segments.map((s, i) => {
                 return (
-                    <div className="segment" key={s.key} style={{backgroundColor: s.color}}>
+                    <div className="segment" key={s.key} style={s.style}>
                     </div>
                 );
             });

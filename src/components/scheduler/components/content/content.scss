@@ -1,5 +1,6 @@
 .scheduler-content {
     margin-top: 0.2em;
+    margin-bottom: 0.2em;
     border: thin solid #eaeaea;
     display:grid;
     grid-template-columns: 100px repeat(auto-fit, minmax(100px, 1fr));

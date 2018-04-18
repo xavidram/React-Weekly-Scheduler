@@ -66,6 +66,12 @@ class Scheduler extends React.Component {
                     endHour={this.props.endHour}
                     hourSegments={this.props.hourSegments}
                 />
+                <SchedulerHeader
+                    days={this.week}
+                    startDay={this.props.startDay}
+                    endDay={this.props.endDay}
+                    hourSegments={this.props.hourSegments}
+                />
             </div>
         );
     }
