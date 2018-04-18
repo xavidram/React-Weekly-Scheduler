@@ -1,20 +1,10 @@
 .scheduler-timecolumn {
     display: grid;
-    grid-template-rows: repeat( auto-fit, auto );
-    border-right: thin solid #e1e1e1;
+    grid-auto-rows: 5em;
     .hour-segment {
         display: grid;
-        grid-template-rows: repeat(auto-fit, auto);
-        height: 5em;
         .segment {
-            text-align: center;
-            vertical-align: middle;
-            padding-top: 0.2em;
-            font-weight: 100;
             border-bottom: thin solid #e1e1e1;
-        }
-        &:last-child {
-            height: 2.5em;
         }
     }
 }

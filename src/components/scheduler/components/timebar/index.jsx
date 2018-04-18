@@ -46,6 +46,7 @@ class TimeBar extends React.Component {
             }
         });
         // add extra segment to ending hour
+        hours.pop(hours.length - 1);
         return hours;
     }
 
@@ -66,7 +67,7 @@ class TimeBar extends React.Component {
             );
         });
         return(
-            <div className="scheduler-timebar-col">
+            <div className="scheduler-timebar">
                 {segments}
             </div>
         );

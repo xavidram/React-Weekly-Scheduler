@@ -1,9 +1,8 @@
-.scheduler-timebar-col {
-    grid-template-rows: repeat( auto-fit, auto );
+.scheduler-timebar {
+    display:grid;
+    grid-auto-rows: 5em;
     .hour-segment {
         display: grid;
-        grid-template-rows: repeat(auto-fit, auto);
-        height: 5em;
         &:nth-child(odd) {
             background-color: #fafafa;
         }
@@ -22,9 +21,5 @@
                 border-bottom: thin dashed #e1e1e1;
             }
         }
-        &:last-child {
-            height: 2.5em;
-        }
-
     }
 }

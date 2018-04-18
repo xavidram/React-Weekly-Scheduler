@@ -11,7 +11,6 @@ class TimeColumn extends React.Component {
         this.segments = this.props.hourSegments;
         this.segMins = 60 / this.props.hourSegments;
         this.color = ((this.props.data != null) ? this.props.data.color : '#FFF');
-        console.log(this.color);
     }
 
     // Generate Array based on start and end value
@@ -46,12 +45,15 @@ class TimeColumn extends React.Component {
                 hours.push({segments: segments});
             }
         });
+        /*
         let extra = hours[hours.length - 1].segments[0].date.clone().add(this.segMins, 'm');
         hours[hours.length - 1].segments.push({
             key: String(this.props.weekday) + " " + String(extra.hour()) + " 2",
             date: extra,
             isStart: false
         });
+        */
+        hours.pop(hours.length - 1);
         return hours;
     }
 

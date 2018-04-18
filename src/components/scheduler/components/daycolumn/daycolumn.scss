@@ -1,3 +1,5 @@
 .scheduler-daycolumn {
-    grid-template-columns: repeat(auto-fit, auto);
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(2em, 1fr));
+    border-right: thin solid #e1e1e1;
 }

@@ -11,21 +11,42 @@ class DayColumn extends React.Component {
         this.data = this.props.data;
     }
 
+    fillerColumn() {
+        return (
+            <TimeColumn
+                key={'timecolumn-' + this.props.weekday + "filler"}
+                isFiller={true}
+                weekday={this.props.weekday}
+                string={this.props.string}
+                startHour={this.props.startHour}
+                endHour={this.props.endHour}
+                hourSegments={this.props.hourSegments * 2}
+            />
+        );
+    }
+
     render() {
-        let cols = this.data.map((usr, index) => {
-            return(
-                <TimeColumn
-                    key={'timecolumn-'+this.props.weekday + "-usr-"+usr.name}
-                    data={usr}
-                    weekday={this.props.weekday}
-                    string={this.props.string}
-                    startHour={this.props.startHour}
-                    endHour={this.props.endHour}
-                    hourSegments={this.props.hourSegments * 2}
-                />
-            );
-        });
-        return(
+        let cols;
+        if (this.props.data.length > 0) {
+            cols = this.data.map((usr, index) => {
+                return (
+                    <TimeColumn
+                        key={'timecolumn-' + this.props.weekday + "-usr-" + usr.name}
+                        data={usr}
+                        isFiller={false}
+                        weekday={this.props.weekday}
+                        string={this.props.string}
+                        startHour={this.props.startHour}
+                        endHour={this.props.endHour}
+                        hourSegments={this.props.hourSegments * 2}
+                    />
+                );
+            });
+
+        } else {
+            cols = this.fillerColumn();
+        }
+        return (
             <div className="scheduler-daycolumn">
                 {cols}
             </div>
