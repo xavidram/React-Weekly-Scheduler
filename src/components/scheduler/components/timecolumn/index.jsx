@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { range  } from 'react-range-proptypes';
+import { range } from 'react-range-proptypes';
 import './timecolumn.css';
 import moment from 'moment';
 
@@ -11,6 +11,7 @@ class TimeColumn extends React.Component {
         this.segments = this.props.hourSegments;
         this.segMins = 60 / this.props.hourSegments;
         this.color = ((this.props.data != null) ? this.props.data.color : '#FFF');
+        console.log(this.props.data);
     }
 
     // Generate Array based on start and end value
@@ -23,6 +24,19 @@ class TimeColumn extends React.Component {
         );
     }
 
+    cellColor(date) {
+        
+        if(typeof this.props.data != 'undefined'){
+            if(date.format('HH:mm') >= this.props.data.shift.Start && date.format('HH:mm') <= this.props.data.shift.End) {
+                if(date.format('HH:mm') >= this.props.data.shift.bStart && date.format('HH:mm') <= this.props.data.shift.bEnd){
+                    return 'FFF'
+                }
+                return this.color;
+            }
+        }
+        return '#FFF';
+    }
+
     generateColumn() {
         let start = moment(this.props.startHour, 'h');
         let end = moment(this.props.endHour, 'h');
@@ -31,18 +45,20 @@ class TimeColumn extends React.Component {
         let date = start.clone();
         diff.map((hour, number) => {
             let segments = [];
-            for(let i = 0; i < this.segments; i++) {
-                if(date >= start && date <= end) {
+            for (let i = 0; i < this.segments; i++) {
+                if (date >= start && date <= end) {
+                    let c = this.cellColor(date);
                     segments.push({
                         key: String(this.props.weekday) + " " + String(hour) + " " + String(i),
                         date: date,
-                        isStart: i === 0
+                        isStart: i === 0,
+                        color: c
                     });
                 }
                 date = date.clone().add(this.segMins, 'm');
             }
-            if(segments.length > 0) {
-                hours.push({segments: segments});
+            if (segments.length > 0) {
+                hours.push({ segments: segments });
             }
         });
         /*
@@ -61,18 +77,18 @@ class TimeColumn extends React.Component {
         let hours = this.generateColumn();
         let segments = hours.map((segment, ind) => {
             let x = segment.segments.map((s, i) => {
-                return(
-                    <div className="segment" key={s.key}>
+                return (
+                    <div className="segment" key={s.key} style={{backgroundColor: s.color}}>
                     </div>
                 );
             });
-            return(
-                <div className="hour-segment" key={'day' + this.props.weekday + 'hour'+ind}>
+            return (
+                <div className="hour-segment" key={'day' + this.props.weekday + 'hour' + ind}>
                     {x}
                 </div>
             );
         });
-        return(
+        return (
             <div className="scheduler-timecolumn">
                 {segments}
             </div>
